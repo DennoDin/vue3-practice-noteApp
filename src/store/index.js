@@ -10,7 +10,7 @@ export default createStore({
       state.todos.push(task)
     },
     toggleStatus(state, taskIndex){
-      state.todos[taskIndex] = !state.todos[taskIndex];
+      state.todos[taskIndex].isComplete = !state.todos[taskIndex].isComplete;
     },
     deleteTodo(state, taskIndex){
       state.todos = state.todos.slice(0, taskIndex).concat(state.todos.slice(taskIndex + 1))
