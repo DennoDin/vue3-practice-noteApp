@@ -1,15 +1,30 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="Input">
+    <Input @add-task="addTodo" />
+  </div>
+  <div class="List">
+    <List />
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Input from "@/components/Input.vue"
+import List from "@/components/List.vue"
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Input,
+    List,
+  },
+  methods: {
+    addTodo(title){
+      const taskObject = {
+        title,
+        isComplete: false,
+      }
+      this.$store.commit('addTodo', taskObject);
+    }
   }
 }
 </script>
